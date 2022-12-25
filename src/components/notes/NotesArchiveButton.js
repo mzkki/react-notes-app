@@ -1,9 +1,11 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 
-function NotesArchiveButton({ id, onArchive }) {
+function NotesArchiveButton({ id, archived, onArchive }) {
   return (
-    <Button variant="primary" onClick={() => onArchive(id)}>Archive</Button>
+    <Button variant={archived ? 'success' : 'primary'} onClick={() => onArchive(id)}>
+      {archived ? 'Pindahkan' : 'Arsipkan'}
+    </Button>
   )
 }
 
