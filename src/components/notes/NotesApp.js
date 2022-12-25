@@ -3,6 +3,7 @@ import NotesList from "./NotesList";
 import { getInitialData } from "../../utils";
 import { Container } from "react-bootstrap";
 import NoteInput from "../form/NoteInput";
+import Swal from "sweetalert2";
 
 class NotesApp extends React.Component {
   constructor(props) {
@@ -18,13 +19,36 @@ class NotesApp extends React.Component {
   }
 
   onDeleteHandler(id) {
-    const notes = this.state.notes.filter(note => note.id !== id)
-    this.setState({ notes })
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const notes = this.state.notes.filter(note => note.id !== id)
+        this.setState({ notes })
+        Swal.fire(
+          'Deleted!',
+          'Catatan kamu berhasil dihapus!',
+          'success'
+        )
+      }
+    })
   }
 
   onArchiveHandler(id) {
     const notes = this.state.notes.map((note) => note.id === id ? { ...note, archived: !note.archived } : note);
     this.setState({ notes })
+    Swal.fire({
+      icon: 'success',
+      title: 'Catatan kamu berhasil dipindahkan',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
   onAddNoteHandler({ title, body }) {
