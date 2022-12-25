@@ -4,18 +4,21 @@ import { getInitialData } from "../../utils";
 import { Container } from "react-bootstrap";
 import NoteInput from "../form/NoteInput";
 import Swal from "sweetalert2";
+import NoteNavbar from "../etc/Navbar";
 
 class NotesApp extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      notes: getInitialData()
+      notes: getInitialData(),
+      query: ""
     }
 
     this.onDeleteHandler = this.onDeleteHandler.bind(this);
     this.onArchiveHandler = this.onArchiveHandler.bind(this);
     this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
+    this.onSearchNoteHandler = this.onSearchNoteHandler.bind(this);
   }
 
   onDeleteHandler(id) {
@@ -68,6 +71,14 @@ class NotesApp extends React.Component {
     });
   }
 
+  onSearchNoteHandler(input) {
+    this.setState(() => {
+      return {
+        query: input
+      }
+    })
+  }
+
   render() {
 
     const activeNotes = this.state.notes.filter((note) => {
@@ -79,17 +90,20 @@ class NotesApp extends React.Component {
     })
 
     return (
-      <Container className="notes-app mt-4">
-        <NoteInput addNote={this.onAddNoteHandler} />
-        <h2>Catatan</h2>
-        <NotesList notes={activeNotes} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} />
-        <h2>Arsip</h2>
-        {archivedNotes.length > 0 ? (
-          <NotesList notes={archivedNotes} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} />
-        ) : (
-          <p>Tidak ada catatan</p>
-        )}
-      </Container>
+      <>
+        <NoteNavbar searchNote={this.onSearchNoteHandler} />
+        <Container className="notes-app mt-4">
+          <NoteInput addNote={this.onAddNoteHandler} />
+          <h2>Catatan</h2>
+          <NotesList notes={activeNotes} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} query={this.state.query} />
+          <h2>Arsip</h2>
+          {archivedNotes.length > 0 ? (
+            <NotesList notes={archivedNotes} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} query={this.state.query} />
+          ) : (
+            <p>Tidak ada catatan</p>
+          )}
+        </Container>
+      </>
     )
   }
 }
