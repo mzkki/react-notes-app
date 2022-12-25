@@ -84,7 +84,7 @@ class NoteInput extends React.Component {
             controlId="floatingInput"
             label="Judul Catatan"
           >
-            <Form.Control type="text" className="border-0 shadow" value={this.state.title} onChange={this.onTitleChangeEventHandler} />
+            <Form.Control type="text" className="border-0 shadow" value={this.state.title} onChange={this.onTitleChangeEventHandler} placeholder="Judul Catatan" />
           </FloatingLabel>
           <MaxLength number={maxChar - this.state.title.length} />
           <FloatingLabel controlId="floatingTextarea2" label="Catatan">
@@ -94,6 +94,7 @@ class NoteInput extends React.Component {
               style={{ height: '100px' }}
               value={this.state.body}
               onChange={this.onBodyChangeEventHandler}
+              placeholder="Catatan"
             />
           </FloatingLabel>
           <ButtonInput />
