@@ -22,9 +22,7 @@ class DetailNote extends React.Component {
       return <p>Movie is note found</p>
     }
     return (
-      <section>
-        <NoteDetail {...this.state.note} />
-      </section>
+      <NoteDetail {...this.state.note} />
     )
   }
 }

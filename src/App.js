@@ -2,14 +2,13 @@ import React from "react";
 import NotesApp from "./components/notes/NotesApp";
 import { Route, Routes } from "react-router-dom";
 import { DetailNoteWrapper } from "./pages/DetailNote";
+import NavbarNote from "./components/etc/Navbar";
 
 function App() {
   return (
     <>
-      <header>
-        {/* <h2>Note Detail</h2> */}
-      </header>
-      <main>
+      <NavbarNote />
+      <main className="mt-5">
         <Routes>
           <Route path="/" element={<NotesApp />} />
           <Route path="/note/:id" element={<DetailNoteWrapper />} />

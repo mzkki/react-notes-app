@@ -4,7 +4,7 @@ import { getInitialData } from "../../utils";
 import { Container } from "react-bootstrap";
 import NoteInput from "../form/NoteInput";
 import Swal from "sweetalert2";
-import NoteNavbar from "../etc/Navbar";
+import SearchNote from "./SearchNote";
 
 class NotesApp extends React.Component {
   constructor(props) {
@@ -91,10 +91,9 @@ class NotesApp extends React.Component {
 
     return (
       <>
-        <NoteNavbar searchNote={this.onSearchNoteHandler} />
         <Container className="notes-app mt-4">
           <NoteInput addNote={this.onAddNoteHandler} />
-          <h2>Catatan</h2>
+          <SearchNote searchNote={this.onSearchNoteHandler} />
           <NotesList notes={activeNotes} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} query={this.state.query} />
           <h2>Arsip</h2>
           {archivedNotes.length > 0 ? (
