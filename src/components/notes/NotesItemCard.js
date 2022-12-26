@@ -11,7 +11,7 @@ function NotesItemCard({ id, title, createdAt, body, archived, onDelete, onArchi
   return (
     <Card className="p-3 border-0 shadow" >
       <NotesHeaderCard id={id} title={title} createdAt={showFormattedDate(createdAt)} />
-      <NotesCardBody body={body} />
+      <NotesCardBody body={body} id={id} />
       <NotesFooterCard id={id} archived={archived} onDelete={onDelete} onArchive={onArchive} />
     </Card>
   )

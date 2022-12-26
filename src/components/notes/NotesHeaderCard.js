@@ -7,7 +7,7 @@ function NotesHeaderCard({ id, title, createdAt }) {
   return (
     <div className="note-item__header">
       <h2 className="note-item__title">
-        <Link to={`/note/${id}`} >{title}</Link>
+        <Link to={`/note/${id}`} className="text-decoration-none text-black" >{title}</Link>
       </h2>
       <Form.Text muted className="note-item__date">
         {createdAt}
