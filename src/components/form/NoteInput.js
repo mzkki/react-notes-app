@@ -4,6 +4,7 @@ import ButtonInput from "./ButtonInput";
 import MaxLength from "./MaxLength";
 import NoteHeader from "./NoteHeader";
 import Swal from "sweetalert2";
+import PropTypes from 'prop-types'
 
 class NoteInput extends React.Component {
   constructor(props) {
@@ -102,6 +103,10 @@ class NoteInput extends React.Component {
       </Card>
     )
   }
+}
+
+NoteInput.propTypes = {
+  addNote: PropTypes.func.isRequired
 }
 
 export default NoteInput;

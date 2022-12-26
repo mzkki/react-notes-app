@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
 function NotesCardBody({ body }) {
   return (
@@ -6,6 +7,10 @@ function NotesCardBody({ body }) {
       <p className="note-item__body">{body}</p>
     </div>
   )
+}
+
+NotesCardBody.propTypes = {
+  body: PropTypes.string.isRequired
 }
 
 export default NotesCardBody;

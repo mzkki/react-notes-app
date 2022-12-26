@@ -2,6 +2,7 @@ import React from "react";
 import { Stack } from "react-bootstrap";
 import NotesArchiveButton from "./NotesArchiveButton";
 import NotesDeleteButton from "./NotesDeleteButton";
+import PropTypes from 'prop-types'
 
 function NotesFooterCard({ id, archived, onDelete, onArchive }) {
   return (
@@ -12,6 +13,14 @@ function NotesFooterCard({ id, archived, onDelete, onArchive }) {
       </Stack>
     </div>
   )
+}
+
+NotesArchiveButton.propTypes = {
+  id: PropTypes.number.isRequired,
+  archived: PropTypes.bool.isRequired,
+  //ondelete tidak required karena menggunakan confirm sweetalert yang defaultnya memberikan nilai undefined
+  onDelete: PropTypes.func,
+  onArchive: PropTypes.func.isRequired
 }
 
 export default NotesFooterCard;

@@ -1,5 +1,6 @@
 import React from "react";
 import { Form } from "react-bootstrap";
+import PropTypes from 'prop-types'
 
 function NotesHeaderCard({ title, createdAt }) {
   return (
@@ -10,6 +11,11 @@ function NotesHeaderCard({ title, createdAt }) {
       </Form.Text>
     </div>
   )
+}
+
+NotesHeaderCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired
 }
 
 export default NotesHeaderCard;

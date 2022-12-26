@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import PropTypes from 'prop-types'
 
 function NotesArchiveButton({ id, archived, onArchive }) {
   return (
@@ -7,6 +8,12 @@ function NotesArchiveButton({ id, archived, onArchive }) {
       {archived ? 'Pindahkan' : 'Arsipkan'}
     </Button>
   )
+}
+
+NotesArchiveButton.propTypes = {
+  id: PropTypes.number.isRequired,
+  archived: PropTypes.bool.isRequired,
+  onArchive: PropTypes.func.isRequired
 }
 
 export default NotesArchiveButton

@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import NotesItemCard from "./NotesItemCard";
+import PropTypes from 'prop-types'
 
 function NotesList({ notes, onDelete, onArchive, query }) {
   const filterQuery = notes.filter((note) => note.title.toLowerCase().includes(query))
@@ -19,6 +20,13 @@ function NotesList({ notes, onDelete, onArchive, query }) {
       </Row>
     </Container>
   )
+}
+
+NotesList.propTypes = {
+  notes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onArchive: PropTypes.func.isRequired,
+  query: PropTypes.string.isRequired
 }
 
 export default NotesList

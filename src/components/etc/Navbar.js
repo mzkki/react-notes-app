@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Navbar, Form } from 'react-bootstrap'
+import PropTypes from 'prop-types'
 
 class NoteNavbar extends React.Component {
   constructor(props) {
@@ -38,6 +39,10 @@ class NoteNavbar extends React.Component {
       </Navbar>
     );
   }
+}
+
+NoteNavbar.propTypes = {
+  searchNote: PropTypes.func.isRequired
 }
 
 export default NoteNavbar;

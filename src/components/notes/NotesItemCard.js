@@ -4,6 +4,7 @@ import NotesHeaderCard from "./NotesHeaderCard";
 import NotesCardBody from "./NotesBodyCard";
 import { showFormattedDate } from "../../utils";
 import { Card } from "react-bootstrap";
+import PropTypes from 'prop-types'
 
 function NotesItemCard({ id, title, createdAt, body, archived, onDelete, onArchive }) {
   return (
@@ -14,5 +15,16 @@ function NotesItemCard({ id, title, createdAt, body, archived, onDelete, onArchi
     </Card>
   )
 }
+
+NotesItemCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  archived: PropTypes.bool.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onArchive: PropTypes.func.isRequired
+}
+
 
 export default NotesItemCard
