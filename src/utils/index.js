@@ -1,5 +1,5 @@
 
-const getInitialData = () => ([
+const notes = [
   {
     id: 1,
     title: "Babel",
@@ -42,7 +42,7 @@ const getInitialData = () => ([
     createdAt: '2022-04-14T04:27:34.572Z',
     archived: false,
   },
-]);
+];
 
 const showFormattedDate = (date) => {
   const options = {
@@ -54,4 +54,21 @@ const showFormattedDate = (date) => {
   return new Date(date).toLocaleDateString("id-ID", options)
 }
 
-export { getInitialData, showFormattedDate };
+const getInitialData = () => {
+  return notes;
+}
+
+const getNote = (id) => {
+  if (!id) {
+    return null
+  }
+
+  const filteredNote = notes.filter((note) => note.id === Number(id))
+  if (!filteredNote.length) {
+    return null
+  }
+
+  return filteredNote[0]
+}
+
+export { getInitialData, showFormattedDate, getNote };

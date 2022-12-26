@@ -1,11 +1,14 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
-function NotesHeaderCard({ title, createdAt }) {
+function NotesHeaderCard({ id, title, createdAt }) {
   return (
     <div className="note-item__header">
-      <h2 className="note-item__title">{title}</h2>
+      <h2 className="note-item__title">
+        <Link to={`/note/${id}`} >{title}</Link>
+      </h2>
       <Form.Text muted className="note-item__date">
         {createdAt}
       </Form.Text>
