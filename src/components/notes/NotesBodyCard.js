@@ -6,9 +6,9 @@ import parser from 'html-react-parser'
 function NotesCardBody({ id, body }) {
   return (
     <div className="note-item__content">
-      <p className="note-item__body">
+      <div className="note-item__body my-2">
         <Link to={`/note/${id}`} className="text-decoration-none text-black" >{parser(body)}</Link>
-      </p>
+      </div>
     </div>
   )
 }

@@ -2,14 +2,13 @@ import React from "react";
 import NotesFooterCard from "./NotesFooterCard";
 import NotesHeaderCard from "./NotesHeaderCard";
 import NotesCardBody from "./NotesBodyCard";
-import { showFormattedDate } from "../../utils";
 import { Card } from "react-bootstrap";
 import PropTypes from 'prop-types'
 
 function NotesItemCard({ id, title, createdAt, body, archived, onDelete, onArchive }) {
   return (
     <Card className="p-3 border-0 shadow" >
-      <NotesHeaderCard id={id} title={title} createdAt={showFormattedDate(createdAt)} />
+      <NotesHeaderCard id={id} title={title} createdAt={createdAt} />
       <NotesCardBody body={body} id={id} />
       <NotesFooterCard id={id} archived={archived} onDelete={onDelete} onArchive={onArchive} />
     </Card>

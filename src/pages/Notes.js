@@ -79,23 +79,10 @@ class Notes extends React.Component {
         this.state.keyword.toLowerCase()
       )
     })
-    const activeNotes = notes.filter((note) => {
-      return note.archived === false
-    })
-
-    const archivedNotes = notes.filter((note) => {
-      return note.archived === true
-    })
     return (
       <>
         <SearchNote SearchNote={this.onSearchNoteHandler} keyword={this.state.keyword} />
-        <NotesList notes={activeNotes} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} query={this.state.keyword} />
-        <h2>Arsip</h2>
-        {archivedNotes.length > 0 ? (
-          <NotesList notes={archivedNotes} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} query={this.state.keyword} />
-        ) : (
-          <p>Tidak ada catatan yang diarsipkan</p>
-        )}
+        <NotesList notes={notes} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} query={this.state.keyword} />
       </>
     )
   }

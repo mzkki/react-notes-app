@@ -73,6 +73,7 @@ const getNote = (id) => {
 
 const addNote = (note) => {
   notes = [...notes, {
+    archived: false,
     id: +new Date(), ...note, createdAt: +new Date(),
   }]
   console.log(notes)

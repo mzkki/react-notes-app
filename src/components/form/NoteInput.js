@@ -39,6 +39,7 @@ class NoteInput extends React.Component {
         body: parsedBody
       }
     })
+    console.log(parsedBody)
   }
 
   onSubmitEventHandler(event) {
