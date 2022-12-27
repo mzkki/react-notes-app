@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <NavbarNote />
-      <main className="mt-5">
+      <main className="my-5">
         <Container className="notes-app  mt-4">
           <Routes>
             <Route path="/" element={<Notes />} />
