@@ -5,13 +5,10 @@ import MaxLength from "./MaxLength";
 import NoteHeader from "./NoteHeader";
 import Swal from "sweetalert2";
 import PropTypes from 'prop-types'
-// import BodyInput from "./BodyInput";
 import { Editor } from "react-draft-wysiwyg";
 import { EditorState } from "draft-js";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { convertToHTML } from "draft-convert";
-// import parser from 'html-react-parser'
-// import BodyInput from "./BodyInput";
 
 class NoteInput extends React.Component {
   constructor(props) {
@@ -20,10 +17,8 @@ class NoteInput extends React.Component {
     this.state = {
       title: '',
       body: EditorState.createEmpty(),
-      // editorState: EditorState.createEmpty()
     }
     this.onTitleChangeEventHandler = this.onTitleChangeEventHandler.bind(this);
-    // this.onBodyChangeEventHandler = this.onBodyChangeEventHandler.bind(this);
     this.onEditorStateChange = this.onEditorStateChange.bind(this)
     this.onSubmitEventHandler = this.onSubmitEventHandler.bind(this);
   }
@@ -44,7 +39,6 @@ class NoteInput extends React.Component {
         body: parsedBody
       }
     })
-    // console.log(convertToHTML(body.getCurrentContent()))
   }
 
   onSubmitEventHandler(event) {
@@ -77,7 +71,6 @@ class NoteInput extends React.Component {
     }
 
     this.props.addNote(this.state)
-    console.log(this.state)
     Swal.fire({
       icon: 'success',
       title: 'Catatan mu telah disimpan',
@@ -100,17 +93,6 @@ class NoteInput extends React.Component {
             <Form.Control type="text" className="border-0 shadow" value={this.state.title} onChange={this.onTitleChangeEventHandler} placeholder="Judul Catatan" />
           </FloatingLabel>
           <MaxLength number={maxChar - this.state.title.length} />
-          {/* <FloatingLabel controlId="floatingTextarea2" label="Catatan">
-            <Form.Control
-              as="textarea"
-              className="border-0 shadow mt-3"
-              style={{ height: '100px' }}
-              value={this.state.body}
-              onChange={this.onBodyChangeEventHandler}
-              placeholder="Catatan"
-            />
-          </FloatingLabel> */}
-          {/* <BodyInput /> */}
           <Editor
             body={editorState}
             wrapperClassName="shadow border-0"

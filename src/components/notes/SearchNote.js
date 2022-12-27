@@ -1,48 +1,34 @@
-import React from 'react';
-import { Container, Navbar, Form } from 'react-bootstrap'
+import React from "react";
 import PropTypes from 'prop-types'
+import { Navbar, Container, Form } from "react-bootstrap";
 
-class SearchNote extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      search: ""
-    }
-
-    this.onSearchChangeEventHandler = this.onSearchChangeEventHandler.bind(this);
-  }
-
-  onSearchChangeEventHandler(event) {
-    this.props.searchNote(event.target.value)
-  }
-
-  render() {
-    return (
-      <Navbar >
-        <Container>
-          <Navbar.Brand>
-            <h2>Catatan</h2>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-          <Navbar.Collapse className="justify-content-end">
-            <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2 border-0 shadow"
-                onChange={this.onSearchChangeEventHandler}
-              />
-            </Form>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    );
-  }
+function SearchNote({ keyword, SearchNote }) {
+  return (
+    <Navbar >
+      <Container>
+        <Navbar.Brand>
+          <h2>Catatan</h2>
+        </Navbar.Brand>
+        <Navbar.Toggle />
+        <Navbar.Collapse className="justify-content-end">
+          <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2 border-0 shadow"
+              value={keyword}
+              onChange={(event) => SearchNote(event.target.value)}
+            />
+          </Form>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  )
 }
 
 SearchNote.propTypes = {
-  searchNote: PropTypes.func.isRequired
+  keyword: PropTypes.string.isRequired,
+  SearchNote: PropTypes.func.isRequired
 }
 
-export default SearchNote;
+export default SearchNote

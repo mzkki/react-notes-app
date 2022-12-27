@@ -7,7 +7,6 @@ import { Card } from "react-bootstrap";
 import PropTypes from 'prop-types'
 
 function NotesItemCard({ id, title, createdAt, body, archived, onDelete, onArchive }) {
-  console.log(typeof (createdAt))
   return (
     <Card className="p-3 border-0 shadow" >
       <NotesHeaderCard id={id} title={title} createdAt={showFormattedDate(createdAt)} />

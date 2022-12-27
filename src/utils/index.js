@@ -1,5 +1,5 @@
 
-const notes = [
+let notes = [
   {
     id: 1,
     title: "Babel",
@@ -71,4 +71,13 @@ const getNote = (id) => {
   return filteredNote[0]
 }
 
-export { getInitialData, showFormattedDate, getNote };
+const addNote = (note) => {
+  notes = [...notes, {
+    id: +new Date(),
+    ...note,
+    createdAt: +new Date(),
+  }]
+  console.log(notes)
+}
+
+export { addNote, getInitialData, showFormattedDate, getNote };
