@@ -3,7 +3,19 @@ import { getInitialData } from "../utils";
 import Swal from "sweetalert2";
 import SearchNote from "../components/notes/SearchNote";
 import NotesList from "../components/notes/NotesList";
+import { useSearchParams } from 'react-router-dom'
 
+function NotesWrapper() {
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const keyword = searchParams.get('keyword')
+
+  function changeSearchParams(keyword) {
+    setSearchParams({ keyword })
+  }
+
+  return <Notes defaultKeyword={keyword} SearchNote={changeSearchParams} />
+}
 
 class Notes extends React.Component {
   constructor(props) {
@@ -57,14 +69,21 @@ class Notes extends React.Component {
         keyword
       }
     })
+
+    this.props.SearchNote(keyword)
   }
 
   render() {
-    const activeNotes = this.state.notes.filter((note) => {
+    const notes = this.state.notes.filter((note) => {
+      return note.title.toLowerCase().includes(
+        this.state.keyword.toLowerCase()
+      )
+    })
+    const activeNotes = notes.filter((note) => {
       return note.archived === false
     })
 
-    const archivedNotes = this.state.notes.filter((note) => {
+    const archivedNotes = notes.filter((note) => {
       return note.archived === true
     })
     return (
@@ -82,4 +101,4 @@ class Notes extends React.Component {
   }
 }
 
-export default Notes;
+export default NotesWrapper;

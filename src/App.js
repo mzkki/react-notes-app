@@ -11,7 +11,7 @@ function App() {
     <>
       <NavbarNote />
       <main className="mt-5">
-        <Container className="notes-app mt-4">
+        <Container className="notes-app  mt-4">
           <Routes>
             <Route path="/" element={<Notes />} />
             <Route path="/add" element={<AddNote />} />
