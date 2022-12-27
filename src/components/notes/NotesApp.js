@@ -80,7 +80,6 @@ class NotesApp extends React.Component {
   }
 
   render() {
-
     const activeNotes = this.state.notes.filter((note) => {
       return note.archived === false
     })
