@@ -19,7 +19,7 @@ class SearchNote extends React.Component {
 
   render() {
     return (
-      <Navbar sticky="top" >
+      <Navbar >
         <Container>
           <Navbar.Brand>
             <h2>Catatan</h2>
