@@ -1,5 +1,5 @@
 import React from "react";
-import { getInitialData } from "../utils";
+import { archiveNote, getActiveData } from "../utils";
 import Swal from "sweetalert2";
 import SearchNote from "../components/notes/SearchNote";
 import NotesList from "../components/notes/NotesList";
@@ -22,7 +22,7 @@ class Notes extends React.Component {
     super(props)
 
     this.state = {
-      notes: getInitialData(),
+      notes: getActiveData(),
       keyword: props.defaultKeyword || ''
     }
 
@@ -42,6 +42,7 @@ class Notes extends React.Component {
     }).then((result) => {
       if (result.isConfirmed) {
         const notes = this.state.notes.filter(note => note.id !== id)
+        // console.log(notes)
         this.setState({ notes })
         Swal.fire(
           'Deleted!',
@@ -53,8 +54,12 @@ class Notes extends React.Component {
   }
 
   onArchiveHandler(id) {
-    const notes = this.state.notes.map((note) => note.id === id ? { ...note, archived: !note.archived } : note);
-    this.setState({ notes })
+    archiveNote(id)
+    this.setState(() => {
+      return {
+        notes: getActiveData()
+      }
+    })
     Swal.fire({
       icon: 'success',
       title: 'Catatan kamu berhasil dipindahkan',
@@ -62,6 +67,7 @@ class Notes extends React.Component {
       timer: 1500
     })
   }
+
 
   onSearchNoteHandler(keyword) {
     this.setState(() => {

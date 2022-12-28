@@ -54,10 +54,6 @@ const showFormattedDate = (date) => {
   return new Date(date).toLocaleDateString("id-ID", options)
 }
 
-const getInitialData = () => {
-  return notes;
-}
-
 const getNote = (id) => {
   if (!id) {
     return null
@@ -79,4 +75,13 @@ const addNote = (note) => {
   console.log(notes)
 }
 
-export { addNote, getInitialData, showFormattedDate, getNote };
+const archiveNote = (id) => {
+  notes = notes.map((note) => note.id === id ? { ...note, archived: !note.archived } : note)
+  return notes
+}
+
+const getActiveData = () => {
+  return notes.filter((note) => note.archived === false)
+}
+
+export { addNote, showFormattedDate, getNote, getActiveData, archiveNote };

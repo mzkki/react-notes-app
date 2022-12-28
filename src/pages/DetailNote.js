@@ -2,7 +2,6 @@ import React from "react";
 import NoteDetail from "../components/notes/NoteDetail";
 import { getNote } from "../utils";
 import { useParams } from "react-router-dom";
-import { getInitialData } from "../utils";
 
 
 export function DetailNoteWrapper() {
@@ -16,7 +15,6 @@ class DetailNote extends React.Component {
     this.state = {
       note: getNote(props.id)
     }
-    console.log(getInitialData())
   }
 
   render() {
