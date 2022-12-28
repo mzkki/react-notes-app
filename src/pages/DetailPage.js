@@ -29,8 +29,6 @@ function DetailPage() {
         )
       }
     })
-    deleteNote(id);
-    navigate('/')
   }
 
   function onArchiveHandler(id) {
