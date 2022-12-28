@@ -31,9 +31,24 @@ function DetailPage() {
     })
   }
 
-  function onArchiveHandler(id) {
+  async function onArchiveHandler(id) {
     archiveNote(id)
     navigate('/')
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-right',
+      iconColor: 'white',
+      customClass: {
+        popup: 'colored-toast'
+      },
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true
+    })
+    await Toast.fire({
+      icon: 'success',
+      title: 'Success'
+    })
   }
 
   return (

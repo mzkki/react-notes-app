@@ -1,12 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-// import { DetailNoteWrapper } from "./pages/DetailNote";
 import NavbarNote from "./components/etc/Navbar";
 import AddNote from "./pages/AddNote";
-// import Notes from "./pages/Notes";
 import { Container } from "react-bootstrap";
 import DetailPage from "./pages/DetailPage";
 import NotesPage from "./pages/NotesPage";
+import './css/toast.css'
 
 function App() {
   return (

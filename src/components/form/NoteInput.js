@@ -41,7 +41,7 @@ class NoteInput extends React.Component {
     })
   }
 
-  onSubmitEventHandler(event) {
+  async onSubmitEventHandler(event) {
     event.preventDefault()
     if (this.state.title === '' && this.state.body === '') {
       Swal.fire({
@@ -71,11 +71,20 @@ class NoteInput extends React.Component {
     }
 
     this.props.addNote(this.state)
-    Swal.fire({
-      icon: 'success',
-      title: 'Catatan mu telah disimpan',
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-right',
+      iconColor: 'white',
+      customClass: {
+        popup: 'colored-toast'
+      },
       showConfirmButton: false,
-      timer: 1500
+      timer: 3000,
+      timerProgressBar: true
+    })
+    await Toast.fire({
+      icon: 'success',
+      title: 'Success'
     })
   }
 
