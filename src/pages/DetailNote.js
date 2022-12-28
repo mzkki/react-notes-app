@@ -1,6 +1,6 @@
 import React from "react";
 import NoteDetail from "../components/notes/NoteDetail";
-import { getNote } from "../utils";
+import { getNote, showFormattedDate } from "../utils";
 import { useParams } from "react-router-dom";
 
 
@@ -18,11 +18,12 @@ class DetailNote extends React.Component {
   }
 
   render() {
+    const note = this.state.note
     if (this.state.note === null) {
       return <p>Movie is note found</p>
     }
     return (
-      <NoteDetail {...this.state.note} />
+      <NoteDetail {...note} createdAt={showFormattedDate(note.createdAt)} />
     )
   }
 }
