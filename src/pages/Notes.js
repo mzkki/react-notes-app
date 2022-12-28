@@ -85,6 +85,8 @@ class Notes extends React.Component {
         this.state.keyword.toLowerCase()
       )
     })
+
+
     return (
       <>
         <SearchNote SearchNote={this.onSearchNoteHandler} keyword={this.state.keyword} />
