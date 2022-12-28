@@ -5,8 +5,9 @@ import { Form } from "react-bootstrap";
 import { showFormattedDate } from "../../utils";
 import { Link } from "react-router-dom";
 import parser from 'html-react-parser'
+import NotesFooterCard from "./NotesFooterCard";
 
-function NoteDetail({ title, body, createdAt }) {
+function NoteDetail({ id, title, body, createdAt, archived, onDelete, onArchive }) {
   return (
     <Container className="text-center">
       <Card className="shadow border-0 p-3 " >
@@ -16,6 +17,7 @@ function NoteDetail({ title, body, createdAt }) {
         <Link to="/">
           <Button variant="outline-danger">Kembali</Button>
         </Link>
+        <NotesFooterCard id={id} archived={archived} onDelete={onDelete} onArchive={onArchive} />
       </Card>
     </Container>
   )

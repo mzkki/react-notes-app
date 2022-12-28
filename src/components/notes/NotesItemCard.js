@@ -1,16 +1,16 @@
 import React from "react";
-import NotesFooterCard from "./NotesFooterCard";
+// import NotesFooterCard from "./NotesFooterCard";
 import NotesHeaderCard from "./NotesHeaderCard";
 import NotesCardBody from "./NotesBodyCard";
 import { Card } from "react-bootstrap";
 import PropTypes from 'prop-types'
 
-function NotesItemCard({ id, title, createdAt, body, archived, onDelete, onArchive }) {
+function NotesItemCard({ id, title, createdAt, body, }) {
   return (
     <Card className="p-3 border-0 shadow" >
       <NotesHeaderCard id={id} title={title} createdAt={createdAt} />
       <NotesCardBody body={body} id={id} />
-      <NotesFooterCard id={id} archived={archived} onDelete={onDelete} onArchive={onArchive} />
+      {/* <NotesFooterCard id={id} archived={archived} onDelete={onDelete} onArchive={onArchive} /> */}
     </Card>
   )
 }
@@ -20,9 +20,6 @@ NotesItemCard.propTypes = {
   title: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  archived: PropTypes.bool.isRequired,
-  onDelete: PropTypes.func.isRequired,
-  onArchive: PropTypes.func.isRequired
 }
 
 

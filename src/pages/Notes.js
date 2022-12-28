@@ -3,7 +3,8 @@ import { archiveNote, getActiveData } from "../utils";
 import Swal from "sweetalert2";
 import SearchNote from "../components/notes/SearchNote";
 import NotesList from "../components/notes/NotesList";
-import { useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
+import { Button } from "react-bootstrap";
 
 function NotesWrapper() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -68,7 +69,6 @@ class Notes extends React.Component {
     })
   }
 
-
   onSearchNoteHandler(keyword) {
     this.setState(() => {
       return {
@@ -88,7 +88,10 @@ class Notes extends React.Component {
     return (
       <>
         <SearchNote SearchNote={this.onSearchNoteHandler} keyword={this.state.keyword} />
-        <NotesList notes={notes} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} query={this.state.keyword} />
+        <NotesList notes={notes} query={this.state.keyword} />
+        <Button variant="success">
+          <Link className="text-white text-decoration-none" to="/archived">Arsip</Link>
+        </Button>
       </>
     )
   }
