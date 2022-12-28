@@ -5,6 +5,7 @@ import NavbarNote from "./components/etc/Navbar";
 import AddNote from "./pages/AddNote";
 import Notes from "./pages/Notes";
 import { Container } from "react-bootstrap";
+import ArchivedNotes from "./pages/ArchivedNotes";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" element={<Notes />} />
             <Route path="/add" element={<AddNote />} />
             <Route path="/note/:id" element={<DetailNoteWrapper />} />
+            <Route path="/archived" element={<ArchivedNotes />} />
           </Routes>
         </Container>
       </main>

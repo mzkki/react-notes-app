@@ -13,6 +13,7 @@ function NavbarNote() {
         <Navbar.Collapse className="justify-content-end">
           <Link to="/" ><FiHome /></Link>
           <Link to="/add" className='mx-3'><FiPlusCircle /></Link>
+          <Link to='/archived'>Archive</Link>
         </Navbar.Collapse>
       </Container>
     </Navbar >

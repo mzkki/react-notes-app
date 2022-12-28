@@ -84,4 +84,8 @@ const getActiveData = () => {
   return notes.filter((note) => note.archived === false)
 }
 
-export { addNote, showFormattedDate, getNote, getActiveData, archiveNote };
+const getArchivedData = () => {
+  return notes.filter((note) => note.archived === true)
+}
+
+export { addNote, showFormattedDate, getNote, getActiveData, archiveNote, getArchivedData };
