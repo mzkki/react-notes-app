@@ -10,7 +10,6 @@ function NotesItemCard({ id, title, createdAt, body, }) {
     <Card className="p-3 border-0 shadow" >
       <NotesHeaderCard id={id} title={title} createdAt={createdAt} />
       <NotesCardBody body={body} id={id} />
-      {/* <NotesFooterCard id={id} archived={archived} onDelete={onDelete} onArchive={onArchive} /> */}
     </Card>
   )
 }

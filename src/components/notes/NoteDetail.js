@@ -19,9 +19,13 @@ function NoteDetail({ id, title, body, createdAt, archived, onDelete, onArchive 
 }
 
 NoteDetail.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  createdAt: PropTypes.string.isRequired
+  createdAt: PropTypes.string.isRequired,
+  archived: PropTypes.bool.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onArchive: PropTypes.func.isRequired
 }
 
 export default NoteDetail

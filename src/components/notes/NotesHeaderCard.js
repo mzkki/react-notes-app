@@ -17,6 +17,7 @@ function NotesHeaderCard({ id, title, createdAt }) {
 }
 
 NotesHeaderCard.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired
 }

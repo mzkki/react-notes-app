@@ -53,10 +53,8 @@ function DetailPage() {
   }
 
   if (note === null) {
-    console.log(note)
     return <NotFound />
   } else {
-    console.log(note)
     return <NoteDetail {...note} createdAt={showFormattedDate(note.createdAt)} onDelete={onDeleteHandler} onArchive={onArchiveHandler} />
   }
 }

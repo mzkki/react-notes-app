@@ -4,7 +4,6 @@ import { Button } from "react-bootstrap";
 
 function BackButton({ archived }) {
   let path = '/archived'
-  console.log(archived)
   if (archived === false) {
     path = '/'
   }

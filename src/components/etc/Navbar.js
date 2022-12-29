@@ -12,7 +12,9 @@ function NavbarNote() {
     <Navbar bg="light" className="shadow" sticky="top">
       <Container>
         <Navbar.Brand>
-          <h4>Notes App</h4>
+          <Link to="/" className='text-decoration-none text-dark'>
+            <h4>Notes App</h4>
+          </Link>
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end" style={{ marginRight: '20px' }}>
           <Link to="/" className={currentPath === '/' ? 'text-primary' : 'text-dark'}  ><FiHome size={20} /></Link>

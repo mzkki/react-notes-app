@@ -14,6 +14,7 @@ function NotesCardBody({ id, body }) {
 }
 
 NotesCardBody.propTypes = {
+  id: PropTypes.number.isRequired,
   body: PropTypes.string.isRequired
 }
 

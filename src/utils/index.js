@@ -72,7 +72,6 @@ const addNote = (note) => {
     archived: false,
     id: +new Date(), ...note, createdAt: +new Date(),
   }]
-  console.log(notes)
 }
 
 const archiveNote = (id) => {
