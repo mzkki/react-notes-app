@@ -6,6 +6,7 @@ import { Container } from "react-bootstrap";
 import DetailPage from "./pages/DetailPage";
 import NotesPage from "./pages/NotesPage";
 import './css/toast.css'
+import "./css/style.css"
 
 function App() {
   return (

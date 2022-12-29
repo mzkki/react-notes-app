@@ -12,7 +12,7 @@ function NoteDetail({ id, title, body, createdAt, archived, onDelete, onArchive 
     <Container className="text-center">
       <Card className="shadow border-0 p-3 " >
         <h2>{title}</h2>
-        <Form.Text muted>Created on {showFormattedDate(createdAt)}</Form.Text>
+        <Form.Text muted>Created on {createdAt}</Form.Text>
         <div>{parser(body)}</div>
         <Link to="/">
           <Button variant="outline-danger">Kembali</Button>

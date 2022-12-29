@@ -3,6 +3,7 @@ import NoteDetail from "../components/notes/NoteDetail";
 import { archiveNote, deleteNote, getNote, showFormattedDate } from "../utils";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import NotFound from "./NotFound";
 
 function DetailPage() {
   const { id } = useParams()
@@ -42,7 +43,7 @@ function DetailPage() {
         popup: 'colored-toast'
       },
       showConfirmButton: false,
-      timer: 3000,
+      timer: 4000,
       timerProgressBar: true
     })
     await Toast.fire({
@@ -51,9 +52,13 @@ function DetailPage() {
     })
   }
 
-  return (
-    <NoteDetail {...note} createdAt={showFormattedDate(note.createdAt)} onDelete={onDeleteHandler} onArchive={onArchiveHandler} />
-  )
+  if (note === null) {
+    console.log(note)
+    return <NotFound />
+  } else {
+    console.log(note)
+    return <NoteDetail {...note} createdAt={showFormattedDate(note.createdAt)} onDelete={onDeleteHandler} onArchive={onArchiveHandler} />
+  }
 }
 
 export default DetailPage
