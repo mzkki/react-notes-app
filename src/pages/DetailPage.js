@@ -36,7 +36,7 @@ function DetailPage() {
     navigate('/')
     const Toast = Swal.mixin({
       toast: true,
-      position: 'top-right',
+      position: 'bottom-right',
       iconColor: 'white',
       customClass: {
         popup: 'colored-toast'
