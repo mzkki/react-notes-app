@@ -73,7 +73,7 @@ class NoteInput extends React.Component {
     this.props.addNote(this.state)
     const Toast = Swal.mixin({
       toast: true,
-      position: 'bottom-right',
+      position: 'bottom',
       iconColor: 'white',
       customClass: {
         popup: 'colored-toast'
