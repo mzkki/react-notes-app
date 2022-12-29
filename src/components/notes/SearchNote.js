@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from 'prop-types'
 import { Navbar, Container, Form } from "react-bootstrap";
-
+import { useLocation } from "react-router";
 function SearchNote({ keyword, SearchNote }) {
+  const currentPath = useLocation().pathname
   return (
     <Navbar >
       <Container>
         <Navbar.Brand>
-          <h2>Catatan</h2>
+          <h2>{currentPath === '/' ? 'Catatan' : 'Arsip'}</h2>
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
