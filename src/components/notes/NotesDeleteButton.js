@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { AiFillDelete } from 'react-icons/ai'
 
 function NotesDeleteButton({ id, onDelete }) {
+  console.log(`ini di file notesdelete button ${typeof (onDelete)}`)
   return (
     <Button variant="danger" onClick={() => onDelete(id)} className="mx-2"><AiFillDelete size={25} /></Button>
   )

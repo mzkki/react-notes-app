@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import BackButton from "./BackButton";
 
 function NotesFooterCard({ id, archived, onDelete, onArchive }) {
+  console.log(typeof (onDelete))
   return (
     <div className="note-item__footer">
       <Container fluid="sm" className="mt-4">
@@ -22,11 +23,10 @@ function NotesFooterCard({ id, archived, onDelete, onArchive }) {
   )
 }
 
-NotesArchiveButton.propTypes = {
+NotesFooterCard.propTypes = {
   id: PropTypes.number.isRequired,
   archived: PropTypes.bool.isRequired,
-  //ondelete tidak required karena menggunakan confirm sweetalert yang defaultnya memberikan nilai undefined
-  onDelete: PropTypes.func,
+  onDelete: PropTypes.func.isRequired,
   onArchive: PropTypes.func.isRequired
 }
 
