@@ -1,7 +1,6 @@
 import React from "react";
 import { useSearchParams, useLocation } from "react-router-dom";
 import NotesList from "../components/notes/NotesList";
-// import NotesList from "../components/notes/NotesList";
 import SearchNote from "../components/notes/SearchNote";
 import { getActiveData, getArchivedData } from "../utils";
 
