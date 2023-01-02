@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import PropTypes from 'prop-types'
 
 function BackButton({ archived }) {
   let path = '/archived'
@@ -13,6 +14,10 @@ function BackButton({ archived }) {
     </Link>
 
   )
+}
+
+BackButton.propTypes = {
+  archived: PropTypes.bool.isRequired
 }
 
 export default BackButton
